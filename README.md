@@ -11,4 +11,4 @@ to adapt it.
 
 TODO
 
-the CountMin isn't finished yet
+The CountMin Sktech implementation isn't finished yet
