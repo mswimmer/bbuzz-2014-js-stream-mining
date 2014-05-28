@@ -11,7 +11,8 @@
     "xxhashjs": "*",
 	"collections": "*",
 	"zmq": "*",
-	"murmurhash": "*"
+	"murmurhash": "*",
+	"jshashes": "*"
   },
   "repository" :
   	{ 	"type" : "git",
