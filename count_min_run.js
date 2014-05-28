@@ -12,11 +12,11 @@ var n = 0;
 
 sub.on('message', function(channel, data) {
 	var tweet = new Tweet(JSON.parse(data));
-	tweet.hashtags(function(key) { cm.update(key) });
+	tweet.urls(function(key) { cm.update(key) });
 	
 	if (n % 100 == 0) {
 		//console.log(cm.getMatrix());
-		tweet.hashtags(function(key) { console.log(key + ": " + cm.query(key)); });
+		tweet.urls(function(key) { console.log(key + ": " + cm.query(key)); });
 	};
 	n += 1;
 	
