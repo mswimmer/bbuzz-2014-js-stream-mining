@@ -1,0 +1,20 @@
+{
+  "name"          : "bbuzz-2014-js-stream-mining",
+  "description"   : "Stream Mining experiments from the BerlinBuzz hackathon",
+  "homepage"      : "",
+  "keywords"      : ["js", "stream", "mining"],
+  "author"        : "Morton Swimmer",
+  "contributors"  : [],
+  "version"       : "0.0.1",
+  "engines"       : { "node": ">=0.4.2" },
+  "dependencies": {
+    "xxhashjs": "*",
+	"collections": "*",
+	"zmq": "*",
+	"murmurhash": "*"
+  },
+  "repository" :
+  	{ 	"type" : "git",
+    	"url" : ""
+  	}
+}
