@@ -1,3 +1,5 @@
+var LfuMap = require("collections/lfu-map");
+
 // Constructor
 function TopK() {
 	var LfuMap = require("collections/lfu-map");
@@ -18,5 +20,3 @@ TopK.prototype.toObject = function() {
 
 // export the class
 module.exports = TopK;
-
-

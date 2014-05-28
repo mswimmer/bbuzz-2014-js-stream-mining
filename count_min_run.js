@@ -1,29 +1,22 @@
 var zmq = require('zmq');
 var sub = zmq.socket('sub');
 var CountMin = require("./count_min");
+var Tweet = require("./tweet");
 
 var port = "5555";
 sub.connect('tcp://144.76.187.43:' + port);
 sub.subscribe('tweet.stream');
 
-var cm = new CountMin(30);
+var cm = new CountMin(1000);
 var n = 0;
 
 sub.on('message', function(channel, data) {
-	var tweet = JSON.parse(data);
-	if (tweet.entities.hashtags.length > 0) {
-		for (var i = tweet.entities.hashtags.length - 1; i >= 0; i--) {
-			cm.update(tweet.entities.hashtags[i].text);
-		};
-	};
+	var tweet = new Tweet(JSON.parse(data));
+	tweet.hashtags(function(key) { cm.update(key) });
 	
 	if (n % 100 == 0) {
 		//console.log(cm.getMatrix());
-		if (tweet.entities.hashtags.length > 0) {
-			for (var i = tweet.entities.hashtags.length - 1; i >= 0; i--) {
-				console.log(tweet.entities.hashtags[i].text + ": " + cm.query(tweet.entities.hashtags[i].text));
-			};
-		};
+		tweet.hashtags(function(key) { console.log(key + ": " + cm.query(key)); });
 	};
 	n += 1;
 	
