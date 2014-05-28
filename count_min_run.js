@@ -17,8 +17,13 @@ sub.on('message', function(channel, data) {
 		};
 	};
 	
-	if (n%1000 == 0) {
-		console.log(cm.getMatrix());
+	if (n % 100 == 0) {
+		//console.log(cm.getMatrix());
+		if (tweet.entities.hashtags.length > 0) {
+			for (var i = tweet.entities.hashtags.length - 1; i >= 0; i--) {
+				console.log(tweet.entities.hashtags[i].text + ": " + cm.query(tweet.entities.hashtags[i].text));
+			};
+		};
 	};
 	n += 1;
 	
